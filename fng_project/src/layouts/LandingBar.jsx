@@ -93,7 +93,7 @@ function LandingBar() {
                         {pages.map((page) => (
                             <Button
                                 key={page}
-                                sx={{ my: 2, color: 'text.secondary', display: 'block' }}
+                                sx={{ my: 2, color: 'text.contrastText', display: 'block' }}
                             >
                                 {page}
                             </Button>
@@ -101,7 +101,7 @@ function LandingBar() {
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>
-                        <Button variant="contained" color="secondary">Login</Button>
+                        <Button variant="contained" color="secondary">Registrarse  </Button>
                     </Box>
                 </Toolbar>
             </Container>
