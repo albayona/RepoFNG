@@ -32,7 +32,7 @@ const Layout = (props) => {
     <>
       <SideNav width={SIDE_NAV_WIDTH}  height={TOP_NAV_HEIGHT}/>
       <LayoutRoot>
-        <LayoutContainer>
+        <LayoutContainer sx={{marginTop: 5}}>
           {children}
           <Footer />
         </LayoutContainer>

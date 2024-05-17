@@ -23,7 +23,7 @@ function App() {
                   }/>
                   <Route element={<ProtectedRoute/>}>
                     <Route element={<DashboardLayout/>}>
-                      <Route path="/create" element={<LoanCreation/>}/>
+                      <Route path="/loan-opening" element={<LoanCreation/>}/>
                     </Route>
                     {/*<Route path="*" element={<NotFound/>}/>*/}
                   </Route>

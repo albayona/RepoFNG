@@ -15,7 +15,7 @@ const pages = ['Products', 'Pricing', 'Blog'];
 function LandingBar() {
 
     return (
-        <AppBar position="static">
+        <AppBar position="fixed">
             <Container maxWidth="xl">
                 <Toolbar>
                     <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />

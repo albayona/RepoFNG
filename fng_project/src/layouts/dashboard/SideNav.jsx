@@ -91,6 +91,7 @@ export const SideNav = ({width, height}) => {
                             disablePadding
                             component={RouterLink}
                             key={item.href}
+                            to={item.href}
                         >
                             <ThemeProvider theme={sideNavTheme}>
                                 <ListItemButton

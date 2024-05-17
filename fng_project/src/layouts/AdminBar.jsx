@@ -156,8 +156,8 @@ export default function AdminBar() {
     );
 
     return (
-        <Box sx={{ flexGrow: 1}}>
-            <AppBar position="static">
+        <Box>
+            <AppBar position="fixed">
                 <Toolbar>
                     <IconButton
                         size="large"

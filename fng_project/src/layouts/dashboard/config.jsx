@@ -6,7 +6,7 @@ import ManageHistoryIcon from '@mui/icons-material/ManageHistory';
 export const items = [
     {
         index: 0,
-        href: '/',
+        href: '/home',
         icon: (
             <HomeIcon fontSize="large"/>
         ),
