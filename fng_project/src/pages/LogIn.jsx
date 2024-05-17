@@ -11,7 +11,20 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import {useAuth} from "../conntexts/UserContext";
-import {Paper} from "@mui/material";
+import {Alert, Paper} from "@mui/material";
+
+
+const users = [{
+    email: "andre@hotmail.com",
+    password: "pass",
+    role: "admin",
+
+}, {
+    email: "juanc@gmail.com",
+    password: "pass",
+    role: "read-only",
+
+}]
 
 
 function Copyright(props) {
@@ -36,6 +49,7 @@ export default function LogIn() {
 
     const [emailError, setEmailError] = React.useState(false);
     const [passError, setPassError] = React.useState(false);
+    const [authError, setAuthError] = React.useState("");
 
     const {loginAction} = useAuth();
 
@@ -45,16 +59,26 @@ export default function LogIn() {
         event.preventDefault();
         setPassError(input.password === "");
         setEmailError(input.email === "");
+        setAuthError(null);
 
         if (!(emailError || passError)) {
-            loginAction({
-                token: "123",
-                user: {
-                    email: input.email,
-                    role: "admin"
-                }
-            });
-            return;
+
+            let foundUser = users.find(user => user.email === input.email && user.password === input.password);
+            if (foundUser) {
+                console.log("Login success")
+                loginAction({
+                    token: "123",
+                    user: {
+                        email: foundUser.email,
+                        role: foundUser.role
+                    }
+                });
+                return;
+            }
+            else {
+                setAuthError("Correo y contraseña no coinciden");
+            }
+
         }
         console.error("Invalid email or password");
     };
@@ -101,7 +125,7 @@ export default function LogIn() {
                             <LockOutlinedIcon />
                         </Avatar>
                         <Typography component="h1" variant="h5">
-                            Sign in
+                            Iniciar sesión
                         </Typography>
                         <Box component="form" onSubmit={handleSubmit} noValidate sx={{mt: 1}}>
                             <TextField
@@ -112,7 +136,7 @@ export default function LogIn() {
                                 required = {true}
                                 fullWidth
                                 id="email"
-                                label="Email Address"
+                                label="correo"
                                 name="email"
                                 autoComplete="email"
                                 autoFocus
@@ -126,32 +150,34 @@ export default function LogIn() {
                                 required = {true}
                                 fullWidth
                                 name="password"
-                                label="Password"
+                                label="contraseña"
                                 type="password"
                                 id="password"
                                 autoComplete="current-password"
                             />
                             <FormControlLabel
                                 control={<Checkbox value="remember" color="primary"/>}
-                                label="Remember me"
+                                label="Recordarme"
                             />
+
+                            {authError && <Alert severity="error">{authError}</Alert>}
                             <Button
                                 type="submit"
                                 fullWidth
                                 variant="contained"
                                 sx={{mt: 3, mb: 2}}
                             >
-                                Sign In
+                              Iniciar sesión
                             </Button>
                             <Grid container>
                                 <Grid item xs>
                                     <Link href="src/pages/LogIn#" variant="body2">
-                                        Forgot password?
+                                        Recuperar contraseña
                                     </Link>
                                 </Grid>
                                 <Grid item>
                                     <Link href="src/pages/LogIn#" variant="body2">
-                                        {"Don't have an account? Sign Up"}
+                                        {"Registrarse"}
                                     </Link>
                                 </Grid>
                             </Grid>
