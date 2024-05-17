@@ -8,8 +8,11 @@ const ProtectedRoute = ({
                         }) => {
 
     const {user}  = useAuth();
-    if (user && role !== user.role) {
+    if (!user) {
         return <Navigate to={redirectPath} replace = {true}/>;
+    }
+    else if (role && role !== user.role) {
+        return <Navigate to={'/unauthorized'} replace = {true}/>;
     }
 
     return children ? children : <Outlet/>;

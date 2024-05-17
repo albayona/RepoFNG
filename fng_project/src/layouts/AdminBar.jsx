@@ -15,6 +15,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import {useAuth} from "../conntexts/UserContext";
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -59,6 +60,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function AdminBar() {
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState();
+    const {logOut}  = useAuth();
 
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
@@ -99,7 +101,7 @@ export default function AdminBar() {
         >
             <MenuItem onClick={handleMenuClose}>Perfil</MenuItem>
             <MenuItem onClick={handleMenuClose}>Preferencias</MenuItem>
-            <MenuItem onClick={handleMenuClose}>Cerrar sesión</MenuItem>
+            <MenuItem onClick={logOut}>Cerrar sesión</MenuItem>
         </Menu>
     );
 

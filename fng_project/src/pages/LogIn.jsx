@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import {useAuth} from "../conntexts/UserContext";
 import {Alert, Paper} from "@mui/material";
+import {useNavigate} from "react-router-dom";
 
 
 const users = [{
@@ -31,7 +32,7 @@ function Copyright(props) {
     return (
         <Typography variant="body2" color="text.secondary" align="center" {...props}>
             {'Copyright © '}
-            <Link color="inherit" href="https://mui.com/">
+            <Link color="inherit" >
                 Your Website
             </Link>{' '}
             {new Date().getFullYear()}
@@ -52,7 +53,7 @@ export default function LogIn() {
     const [authError, setAuthError] = React.useState("");
 
     const {loginAction} = useAuth();
-
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
 
@@ -73,6 +74,8 @@ export default function LogIn() {
                         role: foundUser.role
                     }
                 });
+
+                navigate("/loan-opening");
                 return;
             }
             else {
