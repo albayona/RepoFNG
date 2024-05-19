@@ -2,12 +2,12 @@ import { Box, Container, Link, Typography } from '@mui/material';
 
 const items = [
   {
-    label: 'About Us',
-    href: 'https://devias.io/about-us'
+    label: 'Acerca de',
+    href: ''
   },
   {
-    label: 'Terms',
-    href: 'https://devias.io/legal/tos'
+    label: 'Términos de uso',
+    href: ''
   }
 ];
 
@@ -40,7 +40,7 @@ export const Footer = () => (
         color="text.secondary"
         variant="caption"
       >
-        © 2023 Devias
+        © 2023 FNGs
       </Typography>
       <Box sx={{ flexGrow: 1 }} />
       {items.map((link) => (
