@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import VerifiedUserIcon from '@mui/icons-material/VerifiedUser';
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Acerca de', 'Servicios', 'Blog'];
 function LandingBar() {
 
     return (
